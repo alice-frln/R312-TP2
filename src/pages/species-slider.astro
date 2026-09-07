@@ -10,15 +10,15 @@ import Layout from "../layouts/Layout.astro";
 			<h1 class="text-3xl font-bold">Les especes de pingouins</h1>
 			<nav aria-label="Navigation entre les especes" class="flex flex-wrap gap-3">
 				<a
-					class="menu-item rounded-md bg-sky-700 px-4 py-2 font-semibold text-white hover:bg-sky-800"
+					class="menu-item rounded-md bg-sky-700 px-4 py-2 font-semibold text-white hover:bg-sky-800 [.active]:bg-red-200"
 					href="#adelie">Adelie</a
 				>
 				<a
-					class="menu-item rounded-md bg-sky-700 px-4 py-2 font-semibold text-white hover:bg-sky-800"
+					class="menu-item rounded-md bg-sky-700 px-4 py-2 font-semibold text-white hover:bg-sky-800 [.active]:bg-red-200"
 					href="#gentoo">Gentoo</a
 				>
 				<a
-					class="menu-item rounded-md bg-sky-700 px-4 py-2 font-semibold text-white hover:bg-sky-800"
+					class="menu-item rounded-md bg-sky-700 px-4 py-2 font-semibold text-white hover:bg-sky-800 [.active]:bg-red-200"
 					href="#chinstrap">Chinstrap</a
 				>
 			</nav>
@@ -44,4 +44,24 @@ import Layout from "../layouts/Layout.astro";
 
 	console.log("menuItems", menuItems);
 	console.log("items", items);
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				const id = entry.target.getAttribute("id");
+				const menuItem = document.querySelector(`.menu-item[href="#${id}"]`);
+
+				if (entry.isIntersecting) {
+					menuItem?.classList.add("active");
+				} else {
+					menuItem?.classList.remove("active");
+				}
+			});
+		},
+		{ threshold: 0.5 },
+	);
+
+	items.forEach((item) => {
+		observer.observe(item);
+	});
 </script>
