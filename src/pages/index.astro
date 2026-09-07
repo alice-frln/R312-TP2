@@ -6,7 +6,12 @@ import penguins from "../assets/penguins.json";
 ---
 
 <Layout>
-  <h1 class="text-2xl">Test Astro et Plot (Observablehq)</h1>
+  <div class="flex flex-col gap-4">
+    <h1 class="text-2xl">Test Astro et Plot (Observablehq)</h1>
+    <a class="w-fit rounded-md bg-sky-700 px-4 py-2 font-semibold text-white hover:bg-sky-800" href="/species-slider/">
+      Voir les graphiques par ancres
+    </a>
+  </div>
   <PlotFigure
     options={{
       marks: [

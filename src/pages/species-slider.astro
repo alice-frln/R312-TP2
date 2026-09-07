@@ -1,0 +1,39 @@
+---
+import GraphicSpecies from "../components/GraphicSpecies.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+	<main class="mx-auto flex min-h-full max-w-6xl flex-col gap-8 px-4 py-8">
+		<header class="flex flex-col gap-4">
+			<a class="w-fit text-sm underline" href="/">Retour a l'accueil</a>
+			<h1 class="text-3xl font-bold">Les especes de pingouins</h1>
+			<nav aria-label="Navigation entre les especes" class="flex flex-wrap gap-3">
+				<a
+					class="rounded-md bg-sky-700 px-4 py-2 font-semibold text-white hover:bg-sky-800"
+					href="#adelie">Adelie</a
+				>
+				<a
+					class="rounded-md bg-sky-700 px-4 py-2 font-semibold text-white hover:bg-sky-800"
+					href="#gentoo">Gentoo</a
+				>
+				<a
+					class="rounded-md bg-sky-700 px-4 py-2 font-semibold text-white hover:bg-sky-800"
+					href="#chinstrap">Chinstrap</a
+				>
+			</nav>
+		</header>
+
+		<div class="flex snap-x snap-mandatory scroll-smooth overflow-x-auto rounded-lg border border-slate-300">
+			<section id="adelie" class="flex min-w-full snap-start flex-col gap-4 p-6" aria-label="Graphique Adelie">
+				<GraphicSpecies species="Adelie" />
+			</section>
+			<section id="gentoo" class="flex min-w-full snap-start flex-col gap-4 p-6" aria-label="Graphique Gentoo">
+				<GraphicSpecies species="Gentoo" />
+			</section>
+			<section id="chinstrap" class="flex min-w-full snap-start flex-col gap-4 p-6" aria-label="Graphique Chinstrap">
+				<GraphicSpecies species="Chinstrap" />
+			</section>
+		</div>
+	</main>
+</Layout>

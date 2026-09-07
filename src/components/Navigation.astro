@@ -1,0 +1,22 @@
+---
+const links = [
+	{ href: "/", label: "Accueil" },
+	{ href: "/species-slider/", label: "Les 3 especes" },
+	{ href: "/species/Adelie/", label: "Adelie" },
+	{ href: "/species/Gentoo/", label: "Gentoo" },
+	{ href: "/species/Chinstrap/", label: "Chinstrap" },
+];
+---
+
+<nav class="sticky top-0 z-10 border-b border-slate-200 bg-white" aria-label="Navigation principale">
+	<div class="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-4">
+		<a class="mr-auto text-lg font-bold text-slate-900" href="/">Penguins</a>
+		{links.map(({ href, label }) => (
+			<a
+				class="rounded-md px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-sky-100 hover:text-sky-900"
+				href={href}
+				>{label}</a
+			>
+		))}
+	</div>
+</nav>
